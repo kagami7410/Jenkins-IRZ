@@ -1,0 +1,19 @@
+pipeline{
+    agent any
+
+    stage("build"){
+        steps{
+
+            sh 'echo Hello'
+
+        }
+    }
+
+    post{
+        success{
+            currentBuild.description = "<a href='http://stackoverflow.com'>Stackoverbuild build" + env.BUILD_ID + "</a>"
+        }
+    }
+
+    
+}
